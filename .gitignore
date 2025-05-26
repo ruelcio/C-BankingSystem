@@ -1,0 +1,7 @@
+umaBanking
+*.exe
+*.o
+*.obj
+*.log
+*.tmp
+contas.txt
