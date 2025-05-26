@@ -1,14 +1,15 @@
-#include <iostream>
 #include "banco.hpp"
+#include <iostream>
+#include <limits>
 
 int main() {
-    Banco banco;
+    Banco banco("contas.txt");
     int opcao;
 
     do {
         banco.exibirMenu();
         std::cin >> opcao;
-        std::cin.ignore(); // Limpar o buffer do teclado
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
         switch (opcao) {
             case 1:
@@ -30,10 +31,12 @@ int main() {
                 banco.realizarPagamento();
                 break;
             case 0:
-                std::cout << "Saindo do sistema...\n";
+                std::cout << "\nObrigado por usar o UMABANKING SYSTEM!\n";
                 break;
             default:
-                std::cout << "Opcao invalida!\n";
+                std::cout << "\nOpcao invalida!\n";
+                std::cout << "Pressione ENTER para continuar...";
+                std::cin.get();
         }
     } while (opcao != 0);
 

@@ -1,5 +1,5 @@
-#ifndef CONTABANCARIA_HPP
-#define CONTABANCARIA_HPP
+#ifndef CONTA_BANCARIA_HPP
+#define CONTA_BANCARIA_HPP
 
 #include <string>
 #include <iostream>
@@ -7,17 +7,18 @@
 class ContaBancaria {
 private:
     int numeroConta;
-    std::string nomeCompleto;
-    std::string numeroBI;
+    std::string nome;
+    std::string bi;
     std::string nacionalidade;
-    std::string dataNascimento;
-    double saldo;
+    std::string nascimento;
     std::string iban;
+    double saldo;
+
+    void gerarIBAN();
 
 public:
-    ContaBancaria(int numeroConta, const std::string& nomeCompleto,
-                  const std::string& numeroBI, const std::string& nacionalidade,
-                  const std::string& dataNascimento);
+    ContaBancaria(int numero, const std::string& nome, const std::string& bi,
+                 const std::string& nacionalidade, const std::string& nascimento);
 
     // Getters
     int getNumeroConta() const;
@@ -28,7 +29,7 @@ public:
     double getSaldo() const;
     std::string getIban() const;
 
-    void setSaldo(double valor);
+    void setSaldo(double novoSaldo);
     void setIban(const std::string& novoIban);
 
     // Método para mostrar todos os dados da conta
