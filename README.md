@@ -1,75 +1,90 @@
-# Sistema Bancário UmaBanking
+# Sistema Bancário - UmaBanking
 
-Este é um sistema bancário simples desenvolvido em C++ que permite gerenciar contas bancárias com várias funcionalidades.
+Este é um sistema bancário simples desenvolvido em C++ que permite gerenciar contas bancárias com várias funcionalidades como abertura de conta, depósito, levantamento, transferências e pagamentos de serviços.
+
+---
 
 ## Requisitos
 
-- Compilador C++ (g++ recomendado)
-- Sistema operacional Windows (para as cores do terminal)
+- Compilador C++ (recomendado: `g++`)
+- Sistema operacional compatível com terminal (Windows, Linux ou macOS)
+
+---
 
 ## Como Compilar
 
-1. Abra o terminal na pasta do projeto
-2. Execute o comando:
-```bash
+Abra o terminal na pasta do projeto e execute:
+
+```
 g++ -o umaBanking main.cpp banco.cpp contaBancaria.cpp persistencia.cpp -Wall
 ```
 
+---
+
 ## Como Executar
 
-1. Após compilar, execute o programa:
-```bash
+Após a compilação, execute o programa com:
+
+```
 ./umaBanking
 ```
 
+Ou no Windows:
+
+```
+.\umaBanking.exe
+```
+
+---
+
 ## Funcionalidades
 
-1. **Abrir Conta**
-   - Solicita nome completo
-   - Número do BI
-   - Nacionalidade
-   - Data de nascimento
-   - Gera número de conta e IBAN automaticamente
+### 1. Abrir Conta
+- Solicita nome completo, número do BI, nacionalidade e data de nascimento
+- Gera número de conta e IBAN automaticamente
 
-2. **Depositar**
-   - Digite o número da conta
-   - Informe o valor do depósito
-   - Confirmação com novo saldo
+### 2. Depositar
+- Digite o número da conta
+- Informe o valor do depósito
+- Confirmação com novo saldo
 
-3. **Levantar**
-   - Digite o número da conta
-   - Informe o valor do levantamento
-   - Verifica saldo suficiente
-   - Confirmação com novo saldo
+### 3. Levantar
+- Digite o número da conta
+- Informe o valor a levantar
+- Verifica saldo suficiente antes da operação
+- Confirmação com novo saldo
 
-4. **Consultar Contas**
-   - Lista todas as contas cadastradas
-   - Mostra detalhes completos de cada conta
+### 4. Consultar Contas
+- Lista todas as contas cadastradas
+- Mostra detalhes completos de cada conta
 
-5. **Transferir**
-   - Digite sua conta
-   - Digite a conta destino
-   - Informe o valor
-   - Verifica saldo suficiente
-   - Confirmação com novos saldos
+### 5. Transferir
+- Digite o número da sua conta e da conta destino
+- Informe o valor da transferência
+- Verifica saldo suficiente
+- Atualiza e mostra os saldos de ambas as contas
 
-6. **Pagar Serviços**
-   - Escolha o serviço (Água, Luz, Internet)
-   - Digite o valor
-   - Verifica saldo suficiente
-   - Confirmação com novo saldo
+### 6. Pagar Serviços
+- Escolha um serviço para pagar: Água, Luz ou Internet
+- Digite o valor a ser pago
+- Verifica saldo suficiente
+- Confirmação com novo saldo
+
+---
 
 ## Estrutura do Código
 
-- `main.cpp`: Arquivo principal com o menu e loop do programa
-- `banco.hpp/cpp`: Classe que gerencia todas as operações bancárias
-- `contaBancaria.hpp/cpp`: Classe que representa uma conta bancária
-- `persistencia.hpp/cpp`: Classe que gerencia a leitura/escrita em arquivo
-- `cores.hpp`: Funções para colorir a interface do terminal
+- `main.cpp`: Arquivo principal com o menu e a lógica de interação
+- `banco.hpp/.cpp`: Gerencia operações bancárias como depósito, levantamento e transferência
+- `contaBancaria.hpp/.cpp`: Representa os dados e operações de uma conta bancária
+- `persistencia.hpp/.cpp`: Lida com leitura e gravação de dados em arquivo
 
-## Arquivos de Dados
+---
 
-- `contas.txt`: Arquivo que armazena os dados das contas
-  - Formato: número;nome;bi;nacionalidade;nascimento;iban;saldo
-  - Cada conta em uma linha
-  - Separador: ponto e vírgula (;) 
+## Arquivo de Dados
+
+- **contas.txt**: Armazena as contas em formato texto  
+  - Cada conta ocupa uma linha  
+  - Campos separados por ponto e vírgula (`;`)  
+  - Formato dos campos:  
+    `numero;nome;bi;nacionalidade;nascimento;iban;saldo`
